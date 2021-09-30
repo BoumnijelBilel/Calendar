@@ -1,0 +1,129 @@
+<body>
+<header id="header" class="clearfix" data-current-skin="blue">
+    <ul class="header-inner">
+        <li id="menu-trigger" data-trigger="#sidebar">
+            <div class="line-wrap">
+                <div class="line top"></div>
+                <div class="line center"></div>
+                <div class="line bottom"></div>
+            </div>
+        </li>
+
+        <li class="logo hidden-xs">
+            <a href="index.html">Doctohere</a>
+        </li>
+
+        <li class="pull-right">
+            <ul class="top-menu">
+                <li id="toggle-width">
+                    <div class="toggle-switch">
+                        <input id="tw-switch" type="checkbox" hidden="hidden">
+                        <label for="tw-switch" class="ts-helper"></label>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+
+
+    <!-- Top Search Content -->
+    <div id="top-search-wrap">
+        <div class="tsw-inner">
+            <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
+            <input type="text">
+        </div>
+    </div>
+</header>
+
+<section id="main" data-layout="layout-1">
+    <aside id="sidebar" class="sidebar c-overflow">
+        <div class="profile-menu">
+            <a href="">
+                <div class="profile-pic">
+                    <img src="img/profile-pics/1.jpg" alt="">
+                </div>
+
+                <div class="profile-info">
+                    {{ app.user.email }}
+
+                    <i class="zmdi zmdi-caret-down"></i>
+                </div>
+            </a>
+
+            <ul class="main-menu">
+                <li>
+                    <a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a>
+                </li>
+                <li>
+                    <a href=""><i class="zmdi zmdi-camera"></i> Profile Picture</a>
+                </li>
+                <li>
+                    <a href=""><i class="zmdi zmdi-settings"></i> Settings</a>
+                </li>
+                <li>
+                    <a href=""><i class="zmdi zmdi-time-restore"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="main-menu">
+            <li class="active">
+                <a href="index.html"><i class="zmdi zmdi-home"></i> Home</a>
+            </li>
+            {% if is_granted('ROLE_ADMIN') %}
+
+                <li class="active">
+                    <a href="index.html"><i class="zmdi zmdi-home"></i> Patient</a>
+                </li>
+
+
+                <li class="active">
+                    <a href="index.html"><i class="zmdi zmdi-home"></i> Doctor</a>
+                </li>
+
+                <li class="active">
+                    <a href="index.html"><i class="zmdi zmdi-home"></i> User</a>
+                </li>
+
+            {% endif %}
+
+            <li class="active">
+                <a href="{{ path('main') }}"><i class="zmdi zmdi-home"></i> Event</a>
+            </li>
+
+            <li class="active">
+                <a href="#"><i class="zmdi zmdi-home"></i> Reservation</a>
+            </li>
+
+            {% if is_granted('ROLE_ADMIN') %}
+
+                <li class="active">
+                    <a href="#"><i class="zmdi zmdi-home"></i> Sensor</a>
+                </li>
+
+                <li class="active">
+                    <a href="#"><i class="zmdi zmdi-home"></i> Sensor State</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PATIENT')  %}
+
+                <li class="active">
+                    <a href="index.html"><i class="zmdi zmdi-home"></i> Files</a>
+                </li>
+            {% endif %}
+
+            {% if is_granted('ROLE_ADMIN') %}
+
+                <li class="active">
+                    <a href="index.html"><i class="zmdi zmdi-home"></i> History</a>
+                </li>
+            {% endif %}
+
+
+        </ul>
+    </aside>
+
+
+
+</section>

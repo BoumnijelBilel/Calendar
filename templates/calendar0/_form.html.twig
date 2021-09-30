@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+
+{{ form_row(form.start,{'attr':{'placeholder':"Name of the event",'class':'form-control input-sm'}}) }}
+{{ form_row(form.end,{'attr':{'placeholder':"Name of the doctor" ,'class':'form-control'}}) }}
+{{ form_row(form.calendar_user,{'attr':{'placeholder':"Name of the doctor" ,'class':'form-control'}}) }}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
