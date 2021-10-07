@@ -15,6 +15,8 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use App\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 
 
@@ -33,8 +35,24 @@ class Calendar1Type extends AbstractType
 
         $builder
             ->add('title')
-            ->add('start')
-            ->add('end')
+            ->add('start', DateTimeType::class, array(
+                'required' => true,
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'form-control input-inline datetimepicker',
+                    'data-provide' => 'datetimepicker',
+                    'html5' => false,
+                ]
+            ))
+            ->add('end', DateTimeType::class, array(
+                'required' => true,
+                'widget' => 'single_text',
+                'attr' => [
+                    'class' => 'form-control input-inline datetimepicker',
+                    'data-provide' => 'datetimepicker',
+                    'html5' => false,
+                ]
+            ))
             ->add('description')
             ->add('all_day')
             ->add('background_color')
