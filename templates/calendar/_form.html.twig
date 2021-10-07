@@ -6,18 +6,14 @@
     {{ form_row(form.title,{'value':app.user.email})  }}
     {{ form_row(form.start) }}
     {{ form_row(form.end) }}
-    {{ form_row(form.description,{'value':app.user.email}) }}
+    {{ form_row(form.description) }}
     {{ form_row(form.all_day) }}
 
     {{ form_label(form.calendar_user, 'Current user', {
-        'label_attr': {'class': 'CUSTOM_LABEL_CLASS'}})
-    }}
+        'label_attr': {'class': 'CUSTOM_LABEL_CLASS'}
+    }) }}
 
-    {{ form_row(form.background_color,{'value':'#ffcc00'}) }}
-    {{ form_row(form.border_color,{'value':'#ffeedd'}) }}
-    {{ form_row(form.text_color,{'value':'#000000'}) }}
     {{ form_row(form.calendar_user,{'value':app.user.id}) }}
-
 
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
