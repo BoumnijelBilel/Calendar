@@ -64,6 +64,9 @@ class Calendar
      */
     private $calendar_user;
 
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -168,7 +171,7 @@ class Calendar
     public function getCalendarUser(): ?user
     {
 
-        return  $this->CalendarUser;
+        return  $this->calendar_user;
     }
 
     public function setCalendarUser(?user $calendar_user): self

@@ -45,7 +45,7 @@ class User implements UserInterface
         if(is_null($this->id)) {
             return 'NULL';
         }
-        return $this->id;    }
+        return (string) $this->id;    }
 
     public function __construct()
     {

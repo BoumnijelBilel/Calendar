@@ -9,9 +9,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
+
 
 /**
  * @Route("/calendar")
+ * @Security("is_granted('ROLE_USER')")
  */
 class CalendarController extends AbstractController
 {
@@ -30,6 +34,7 @@ class CalendarController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        //$user = $this->container->get('security.token_storage')->getToken()->getUser();
         $calendar = new Calendar();
         $form = $this->createForm(Calendar1Type::class, $calendar);
         $form->handleRequest($request);
@@ -91,4 +96,8 @@ class CalendarController extends AbstractController
 
         return $this->redirectToRoute('calendar_index');
     }
+
+
+
+
 }

@@ -101,7 +101,7 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator implements Passwor
         $roles = $user->getRoles();
 
         if ($roles[0]  == "ROLE_ADMIN") {
-            return new RedirectResponse($this->urlGenerator->generate('main'));
+            return new RedirectResponse($this->urlGenerator->generate('home'));
         }
         //throw new \Exception('TODO: provide a valid redirect inside ' . __FILE__);
 
